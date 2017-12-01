@@ -32,4 +32,12 @@ describe Captcha do
 
     expect(captcha.answer).to eq expected_answer
   end
+
+  it "91212129 produces 9 because the only digit that matches is last" do
+    array4 = [9, 1, 2, 1, 2, 1, 2, 9]
+    expected_answer = 9
+    captcha = Captcha.new(array4)
+
+    expect(captcha.answer).to eq expected_answer
+  end
 end
