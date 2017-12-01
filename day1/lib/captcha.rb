@@ -8,28 +8,19 @@ class Captcha
   end
 
   def answer
-    numbers_with_matches = []
-
+    matching_numbers = []
     array.each_with_index do |digit, index|
-      matcher = DigitMatcher.new(array, index)
-      if matcher.it_is_the_last_digit_in_array
-        if matcher.last_digit_matches_first
-          numbers_with_matches << array[index]
-        end
-      elsif digit_matches_next(index, array)
-        numbers_with_matches << array[index]
+      dm = DigitMatcher.new(array, index)
+      if dm.last_digit_matches_first || dm.digit_matches_next
+        matching_numbers << array[index]
       end
     end
-    sum_of(numbers_with_matches)
+    sum_of(matching_numbers)
   end
 
   private
 
-  def sum_of(numbers_with_matches)
-    numbers_with_matches.inject(0) { |sum, memo| sum + memo }
-  end
-
-  def digit_matches_next(i, array)
-    array[i] == array[i+1]
+  def sum_of(matching_numbers)
+    matching_numbers.inject(0) { |sum, memo| sum + memo }
   end
 end
