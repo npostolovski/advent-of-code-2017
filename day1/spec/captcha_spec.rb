@@ -24,4 +24,12 @@ describe Captcha do
 
     expect(captcha.answer).to eq expected_answer
   end
+
+  it "1234 should produce 0 because no digit matches" do
+    array3 = [1, 2, 3, 4]
+    expected_answer = 0
+    captcha = Captcha.new(array3)
+
+    expect(captcha.answer).to eq expected_answer
+  end
 end
