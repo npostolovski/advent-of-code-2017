@@ -16,4 +16,12 @@ describe Captcha do
 
     expect(captcha.answer).to eq expected_answer
   end
+
+  it "1111 should produce a sum of 4" do
+    array2 = [1, 1, 1, 1]
+    expected_answer = 4
+    captcha = Captcha.new(array2)
+
+    expect(captcha.answer).to eq expected_answer
+  end
 end
