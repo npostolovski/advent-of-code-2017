@@ -1,7 +1,7 @@
 class InputParser
   attr_reader :input, :array
 
-  INPUT_FILEPATH = File.expand_path('day1/input.txt')
+  INPUT_FILEPATH = File.expand_path('day1/lib/input.txt')
 
   def initialize
     @input = File.read(INPUT_FILEPATH)

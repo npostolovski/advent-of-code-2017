@@ -1,4 +1,4 @@
-require_relative '../captcha'
+require_relative '../../lib/captcha'
 
 describe Captcha do
   let(:array) { [1, 2, 3] }

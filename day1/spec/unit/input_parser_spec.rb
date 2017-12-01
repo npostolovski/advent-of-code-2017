@@ -1,4 +1,4 @@
-require_relative '../input_parser'
+require_relative '../../lib/input_parser'
 
 describe InputParser do
   let(:input) { InputParser.new }
