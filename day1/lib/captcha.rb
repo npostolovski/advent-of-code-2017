@@ -13,7 +13,7 @@ class Captcha
     array.each_with_index do |digit, index|
       matcher = DigitMatcher.new(array, index)
       if matcher.it_is_the_last_digit_in_array
-        if last_digit_matches_first(index, array)
+        if matcher.last_digit_matches_first
           numbers_with_matches << array[index]
         end
       elsif digit_matches_next(index, array)
@@ -27,10 +27,6 @@ class Captcha
 
   def sum_of(numbers_with_matches)
     numbers_with_matches.inject(0) { |sum, memo| sum + memo }
-  end
-
-  def last_digit_matches_first(i, array)
-    array[i] == array[0]
   end
 
   def digit_matches_next(i, array)
